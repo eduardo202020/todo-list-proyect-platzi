@@ -2,6 +2,9 @@ import React from "react";
 import "./TodoItem.css";
 
 function TodoItem(props) {
+  const onClickButton = (msg) => {
+    alert(msg);
+  };
   return (
     <li className="TodoItem">
       <span
@@ -12,7 +15,12 @@ function TodoItem(props) {
       <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
         {props.text}
       </p>
-      <span className="Icon Icon-delete">X</span>
+      <span
+        className="Icon Icon-delete"
+        onClick={() => onClickButton(props.text)}
+      >
+        X
+      </span>
     </li>
   );
 }
