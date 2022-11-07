@@ -3,13 +3,13 @@ import "./TodoItem.css";
 
 function TodoItem(props) {
   const onClickButton = () => {
-    props.deleteTodo();
+    props.onDelete();
   };
   return (
     <li className="TodoItem">
       <span
         className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}
-        onClick={props.completeTodo}
+        onClick={props.onComplete}
       >
         √
       </span>
