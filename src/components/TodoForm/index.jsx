@@ -1,12 +1,9 @@
 import React from "react";
-import { TodoContext } from "../../TodoContext";
 import "./TodoForm.css";
 
-function TodoForm() {
+function TodoForm({ addTodo, setOpenModal }) {
   // Creamos un estado para nuestro nuevo TODO
   const [newTodoValue, setNewTodoValue] = React.useState("");
-  // Desestructuramos las funciones que necesitamos para añadir un TODO y cerrar nuestro modal
-  const { addTodo, setOpenModal } = React.useContext(TodoContext);
 
   // Creamos una función para actualizar el estado de nuestro nuevo TODO
   const onChange = (event) => {
@@ -34,9 +31,10 @@ function TodoForm() {
     <form onSubmit={onSubmit}>
       <label>Escribe tu nuevo TODO</label>
       <textarea
+        autoFocus
         value={newTodoValue}
         onChange={onChange}
-        placeholder="Cortar la cebolla para el almuerzo"
+        placeholder="Type a todo"
       />
       <div className="TodoForm-buttonContainer">
         <button
