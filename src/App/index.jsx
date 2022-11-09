@@ -10,6 +10,8 @@ import { LoadingTodo } from "../components/LoadingTodo";
 import { Modal } from "../components/Modal";
 import { TodoForm } from "../components/TodoForm";
 import { TodoHeader } from "../components/TodoHeader";
+import { TodosError } from "../components/TodosError";
+import { EmptyTodos } from "../components/EmptyTodos";
 
 function App() {
   const {
@@ -37,16 +39,14 @@ function App() {
         />
       </TodoHeader>
 
-      <TodoList>
-        {error && <p>Desespérate, hubo un error...</p>}
-        {/* {loading && <p>Estamos cargando, no desesperes...</p>} */}
-        {loading &&
-          new Array(5)
-            .fill(10)
-            .map((item, index) => <LoadingTodo key={index} />)}
-        {!loading && !searchedTodos.length && <p>¡Crea tu primer TODO!</p>}
-
-        {searchedTodos.map((todo) => (
+      <TodoList
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        onError={() => <TodosError />}
+        onLoading={() => <LoadingTodo />}
+        onEmptyTodos={() => <EmptyTodos />}
+        render={(todo) => (
           <TodoItem
             key={todo.text}
             text={todo.text}
@@ -54,8 +54,8 @@ function App() {
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
           />
-        ))}
-      </TodoList>
+        )}
+      />
 
       {openModal && (
         <Modal>
