@@ -12,6 +12,7 @@ import { TodoForm } from "../components/TodoForm";
 import { TodoHeader } from "../components/TodoHeader";
 import { TodosError } from "../components/TodosError";
 import { EmptyTodos } from "../components/EmptyTodos";
+import { ChangeAlert } from "../components/ChangeAlert";
 
 function App() {
   const {
@@ -27,15 +28,20 @@ function App() {
     totalTodos,
     completedTodos,
     addTodo,
+    sincronizeTodos,
   } = useTodos();
   return (
     <React.Fragment>
-      <TodoHeader>
-        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+      <TodoHeader loading={loading}>
+        <TodoCounter
+          totalTodos={totalTodos}
+          completedTodos={completedTodos}
+          // loading={loading}
+        />
         <TodoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-          loading={loading}
+          // loading={loading}
         />
       </TodoHeader>
 
@@ -45,6 +51,7 @@ function App() {
         searchedTodos={searchedTodos}
         totalTodos={totalTodos}
         searchValue={searchValue}
+        searchText={searchValue}
         onError={() => <TodosError />}
         onLoading={() => <LoadingTodo />}
         onEmptyTodos={() => <EmptyTodos />}
@@ -71,6 +78,8 @@ function App() {
       )}
 
       <CreateTodoButton setOpenModal={setOpenModal} />
+
+      <ChangeAlert sincronize={sincronizeTodos} />
     </React.Fragment>
   );
 }
