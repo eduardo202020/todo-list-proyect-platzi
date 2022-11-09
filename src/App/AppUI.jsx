@@ -9,6 +9,7 @@ import { CreateTodoButton } from "../components/CreateTodoButton";
 import { LoadingTodo } from "../components/LoadingTodo";
 import { Modal } from "../components/Modal";
 import { TodoForm } from "../components/TodoForm";
+import { TodoHeader } from "../components/TodoHeader";
 
 function AppUI() {
   // Desesctructuramos los valores de nuestro contexto
@@ -20,12 +21,18 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    searchValue,
+    setSearchValue,
+    totalTodos,
+    completedTodos,
   } = React.useContext(TodoContext);
 
   return (
     <React.Fragment>
-      <TodoCounter />
-      <TodoSearch />
+      <TodoHeader>
+        <TodoCounter totalTodos={totalTodos} completedTodos={completedTodos} />
+        <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} />
+      </TodoHeader>
 
       <TodoList>
         {error && <p>Desespérate, hubo un error...</p>}
