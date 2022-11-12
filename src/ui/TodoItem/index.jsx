@@ -5,6 +5,10 @@ function TodoItem(props) {
   const onClickButton = () => {
     props.onDelete();
   };
+  const onEditButton = () => {
+    props.onEdit();
+  };
+
   return (
     <li className="TodoItem">
       <span
@@ -16,6 +20,9 @@ function TodoItem(props) {
       <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
         {props.text}
       </p>
+      <span className="Icon Icon-edit" onClick={onEditButton}>
+        ✍️
+      </span>
       <span className="Icon Icon-delete" onClick={onClickButton}>
         X
       </span>

@@ -25,6 +25,7 @@ function HomePage() {
     completedTodos,
     openModal,
     searchValue,
+    editTodo,
   } = state;
 
   const {
@@ -72,6 +73,7 @@ function HomePage() {
             completed={todo.completed}
             onComplete={() => completeTodo(todo.text)}
             onDelete={() => deleteTodo(todo.text)}
+            onEdit={() => console.log(todo.text)}
           />
         )}
       />

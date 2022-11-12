@@ -48,3 +48,9 @@
 .Icon-delete:hover {
   color: red;
 }
+
+.Icon-edit {
+  position: absolute;
+  top: -24px;
+  right: 48px;
+}
