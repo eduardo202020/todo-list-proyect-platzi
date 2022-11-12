@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useLocalStorage } from "./useLocalStorage";
 
 function useTodos() {
@@ -28,26 +29,32 @@ function useTodos() {
   }
 
   const addTodo = (text) => {
+    const id = uuidv4();
     const newTodos = [...todos];
     newTodos.push({
       completed: false,
       text,
+      id,
     });
     saveTodos(newTodos);
   };
 
-  const completeTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const completeTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const deleteTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
+  };
+
+  const editTodo = (id) => {
+    console.log(id);
   };
 
   const state = {
@@ -67,6 +74,7 @@ function useTodos() {
     deleteTodo,
     setOpenModal,
     sincronizeTodos,
+    editTodo,
   };
 
   return { state, stateUpdaters };

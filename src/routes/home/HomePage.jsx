@@ -25,10 +25,10 @@ function HomePage() {
     completedTodos,
     openModal,
     searchValue,
-    editTodo,
   } = state;
 
   const {
+    editTodo,
     setOpenModal,
     addTodo,
     completeTodo,
@@ -71,9 +71,9 @@ function HomePage() {
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-            onEdit={() => console.log(todo.text)}
+            onComplete={() => completeTodo(todo.id)}
+            onDelete={() => deleteTodo(todo.id)}
+            onEdit={() => editTodo(todo.id)}
           />
         )}
       />

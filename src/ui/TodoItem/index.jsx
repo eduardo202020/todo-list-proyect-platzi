@@ -20,7 +20,7 @@ function TodoItem(props) {
       <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
         {props.text}
       </p>
-      <span className="Icon Icon-edit" onClick={onEditButton}>
+      <span role="img" className="Icon Icon-edit" onClick={onEditButton}>
         ✍️
       </span>
       <span className="Icon Icon-delete" onClick={onClickButton}>
