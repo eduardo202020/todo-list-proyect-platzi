@@ -15,7 +15,15 @@ function TodoItem(props) {
         className={`Icon Icon-check ${props.completed && "Icon-check--active"}`}
         onClick={props.onComplete}
       >
-        √
+        {props.completed ? (
+          <span role="img" aria-label="">
+            ✖️
+          </span>
+        ) : (
+          <span aria-label="" role="img">
+            ✔️
+          </span>
+        )}
       </span>
       <p className={`TodoItem-p ${props.completed && "TodoItem-p--complete"}`}>
         {props.text}
@@ -26,7 +34,7 @@ function TodoItem(props) {
         aria-label=""
         onClick={onEditButton}
       >
-        ✍️
+        ✏️
       </span>
       <span className="Icon Icon-delete" onClick={onClickButton}>
         X

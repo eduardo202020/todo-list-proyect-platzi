@@ -22,7 +22,6 @@ function EditTodoPage() {
     const todo = getTodo(id);
     todoText = todo.text;
   }
-
   return (
     <TodoForm
       label="Edita tu TODO"
