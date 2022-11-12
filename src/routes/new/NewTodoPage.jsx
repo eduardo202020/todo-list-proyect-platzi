@@ -5,11 +5,11 @@ import { useTodos } from "../useTodos";
 function NewTodoPage() {
   const { stateUpdaters } = useTodos();
 
-  //   const { addTodo } = stateUpdaters;
+  const { addTodo } = stateUpdaters;
   return (
     <>
       <TodoForm
-        submitEvent={() => console.log("este debera agregar un todo")}
+        submitEvent={(text) => addTodo(text)}
         submitText="Agregar"
         label="Agrega tu TODO"
         // setOpenModal={setOpenModal}

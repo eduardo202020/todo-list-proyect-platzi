@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/new" element={<NewTodoPage />} />
-        <Route path="/edit/:todoId" element={<EditTodoPage />} />
+        <Route path="/edit/:id" element={<EditTodoPage />} />
         <Route path="*" element={<h1>404: Not Found</h1>} />
       </Routes>
     </HashRouter>
