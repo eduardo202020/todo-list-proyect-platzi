@@ -55,7 +55,7 @@ function useTodos() {
 
   const editTodo = (id, newText) => {
     const todoIndex = todos.findIndex((todo) => todo.id === id);
-    if (todoIndex == -1) {
+    if (todoIndex === -1) {
       console.log("Error: Todo not found");
       console.log("id: " + id);
     } else {
@@ -78,6 +78,7 @@ function useTodos() {
     searchValue,
     searchedTodos,
     // openModal,
+    getTodo,
     todos,
   };
 
@@ -89,7 +90,6 @@ function useTodos() {
     // setOpenModal,
     sincronizeTodos,
     editTodo,
-    getTodo,
   };
 
   return { state, stateUpdaters };
