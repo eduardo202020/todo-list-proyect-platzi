@@ -4,7 +4,7 @@ import "./TodoForm.css";
 
 function TodoForm(props) {
   // Creamos un estado para nuestro nuevo TODO
-  const [newTodoValue, setNewTodoValue] = React.useState("");
+  const [newTodoValue, setNewTodoValue] = React.useState(props.text);
 
   // uso del navegate
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ function TodoForm(props) {
   const onSubmit = (event) => {
     // prevent default para evitar recargar la página
     event.preventDefault();
-    // Utilizamos nuestra función para añadir nuestro TODO
+    // Utilizamos nuestra función que llamara que hacer(add or edit) con el nuevo valor
     props.submitEvent(newTodoValue);
     // Cerramos nustro modal
     // setOpenModal(false);

@@ -4,21 +4,27 @@ import { TodoForm } from "../../ui/TodoForm";
 import { useTodos } from "../useTodos";
 
 function EditTodoPage() {
-  const { stateUpdaters } = useTodos();
+  const { stateUpdaters, state } = useTodos();
   const { id } = useParams();
-  console.log(id);
+  const { loading } = state;
 
-  const { editTodo } = stateUpdaters;
-  return (
-    <>
-      <h1>editar todo</h1>
-      <TodoForm
-        submitEvent={(newTodoText) => editTodo(id, newTodoText)}
-        submitText="Editar"
-        label="Edita tu TODO"
-      />
-    </>
-  );
+  const { getTodo, editTodo } = stateUpdaters;
+  const todo = getTodo(id);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  } else {
+    return (
+      <>
+        <TodoForm
+          submitEvent={(newTodoText) => editTodo(id, newTodoText)}
+          submitText="Editar"
+          label="Edita tu TODO"
+          text={todo.text}
+        />
+      </>
+    );
+  }
 }
 
 export { EditTodoPage };
