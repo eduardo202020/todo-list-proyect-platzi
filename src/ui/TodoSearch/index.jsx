@@ -9,7 +9,11 @@ function TodoSearch({ setSearchValue, searchValue, loading, searchedText }) {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       // 👇 Get input value
-      navigate(`/?search=${event.target.value}`);
+      if (event.target.value === "") {
+        navigate("/");
+      } else {
+        navigate(`/?search=${event.target.value}`);
+      }
     }
   };
 

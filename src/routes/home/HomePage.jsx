@@ -13,18 +13,15 @@ import { TodoHeader } from "../../ui/TodoHeader";
 import { TodosError } from "../../ui/TodosError";
 import { EmptyTodos } from "../../ui/EmptyTodos";
 import { ChangeAlert } from "../../ui/ChangeAlert";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 function HomePage() {
   const navigate = useNavigate();
   const { state, stateUpdaters } = useTodos();
-  const { searchText } = useParams();
-  let newUrl = "";
-  if (searchText) {
-    console.log(searchText);
-    newUrl = searchText.replace("?search=", "");
-  }
 
+  // codigo que utiliza el parametro ?search= de la url para buscar y lo pasa al input
+  const mySearch = useLocation().search;
+  const searchText = new URLSearchParams(mySearch).get("search");
   const {
     error,
     loading,
@@ -56,7 +53,7 @@ function HomePage() {
         <TodoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-          searchedText={newUrl}
+          searchedText={searchText}
           // loading={loading}
         />
       </TodoHeader>
@@ -72,9 +69,19 @@ function HomePage() {
         onLoading={() => <LoadingTodo />}
         onEmptyTodos={() => <EmptyTodos />}
         onEmptySearchResults={(searchText) => (
-          <p>
-            No hay resultados para <b style={{ color: "red" }}>{searchText}</b>
-          </p>
+          <>
+            <p>No hay resultados para </p>
+            <b style={{ color: "red" }}>"{searchText}"</b>
+            <div>
+              <button
+                onClick={() => {
+                  navigate("/new/", { state: { searchText } });
+                }}
+              >
+                ¿agregar?
+              </button>
+            </div>
+          </>
         )}
         render={(todo) => (
           <TodoItem

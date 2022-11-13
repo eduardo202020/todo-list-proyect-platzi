@@ -3,3 +3,29 @@ ul {
   padding: 0 0 56px 0;
   list-style: none;
 }
+
+.vacio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  /* border: 1px solid #e6e6e6; */
+}
+.vacio button {
+  margin-top: 20px;
+  border-radius: 5px;
+  /* border: 1px solid #e6e6e6; */
+  background-color: red;
+  padding: 5px 10px;
+  border: 0px;
+}
+
+button:hover {
+  color: yellow;
+  border: 0px;
+  box-shadow: red 0px 0px 10px;
+  border-radius: 15px;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
