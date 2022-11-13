@@ -13,11 +13,17 @@ import { TodoHeader } from "../../ui/TodoHeader";
 import { TodosError } from "../../ui/TodosError";
 import { EmptyTodos } from "../../ui/EmptyTodos";
 import { ChangeAlert } from "../../ui/ChangeAlert";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function HomePage() {
   const navigate = useNavigate();
   const { state, stateUpdaters } = useTodos();
+  const { searchText } = useParams();
+  let newUrl = "";
+  if (searchText) {
+    console.log(searchText);
+    newUrl = searchText.replace("?search=", "");
+  }
 
   const {
     error,
@@ -38,6 +44,7 @@ function HomePage() {
     setSearchValue,
     sincronizeTodos,
   } = stateUpdaters;
+
   return (
     <React.Fragment>
       <TodoHeader loading={loading}>
@@ -49,6 +56,7 @@ function HomePage() {
         <TodoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
+          searchedText={newUrl}
           // loading={loading}
         />
       </TodoHeader>

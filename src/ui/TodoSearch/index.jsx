@@ -1,7 +1,25 @@
 import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./TodoSearch.css";
 
-function TodoSearch({ setSearchValue, searchValue, loading }) {
+function TodoSearch({ setSearchValue, searchValue, loading, searchedText }) {
+  const navigate = useNavigate();
+
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      // 👇 Get input value
+      navigate(`/?search=${event.target.value}`);
+      console.log(event.target.value);
+    }
+  };
+
+  useEffect(() => {
+    if (searchedText) {
+      setSearchValue(searchedText);
+    }
+  }, [searchedText]);
+
   const onSearchValueChange = (event) => {
     setSearchValue(event.target.value);
   };
@@ -14,6 +32,7 @@ function TodoSearch({ setSearchValue, searchValue, loading }) {
       placeholder="cargando ..."
       onChange={onSearchValueChange}
       value={searchValue}
+      onKeyDown={handleKeyDown}
     />
   ) : (
     <input
@@ -22,6 +41,7 @@ function TodoSearch({ setSearchValue, searchValue, loading }) {
       placeholder="type a todo"
       onChange={onSearchValueChange}
       value={searchValue}
+      onKeyDown={handleKeyDown}
     />
   );
 
