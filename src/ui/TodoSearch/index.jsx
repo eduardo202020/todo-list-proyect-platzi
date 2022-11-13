@@ -10,7 +10,6 @@ function TodoSearch({ setSearchValue, searchValue, loading, searchedText }) {
     if (event.key === "Enter") {
       // 👇 Get input value
       navigate(`/?search=${event.target.value}`);
-      console.log(event.target.value);
     }
   };
 
