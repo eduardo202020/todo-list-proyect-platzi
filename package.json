@@ -14,6 +14,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,5 +39,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://eduardo202020.github.io/todo-list-proyect-platzi/"
+  "homepage": "https://eduardo202020.github.io/todo-list-proyect-platzi/"
 }
