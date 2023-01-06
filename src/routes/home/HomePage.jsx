@@ -13,7 +13,7 @@ import { TodoHeader } from "../../ui/TodoHeader";
 import { TodosError } from "../../ui/TodosError";
 import { EmptyTodos } from "../../ui/EmptyTodos";
 import { ChangeAlert } from "../../ui/ChangeAlert";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function HomePage() {
   const navigate = useNavigate();
