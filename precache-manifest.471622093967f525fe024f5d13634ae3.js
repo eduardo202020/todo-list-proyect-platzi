@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "32e4bdea0eb8ca59f4af",
+    "revision": "b423fbab6bb95b994100",
     "url": "/todo-list-proyect-platzi/static/css/main.472a3e13.chunk.css"
   },
   {
-    "revision": "32e4bdea0eb8ca59f4af",
-    "url": "/todo-list-proyect-platzi/static/js/main.32e4bdea.chunk.js"
+    "revision": "b423fbab6bb95b994100",
+    "url": "/todo-list-proyect-platzi/static/js/main.b423fbab.chunk.js"
   },
   {
     "revision": "420df3fc156659388558",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/todo-list-proyect-platzi/static/js/runtime~main.e316852e.js"
   },
   {
-    "revision": "a48d93372f278051b2ae67ee8df1470d",
+    "revision": "dc90d96d329d2df6edc18f54799b8e01",
     "url": "/todo-list-proyect-platzi/index.html"
   }
 ];

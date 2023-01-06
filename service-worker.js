@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/todo-list-proyect-platzi/precache-manifest.82e2163a135ccf860177ca9dbe4a6d1a.js"
+  "/todo-list-proyect-platzi/precache-manifest.471622093967f525fe024f5d13634ae3.js"
 );
 
 workbox.clientsClaim();
